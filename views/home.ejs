@@ -1,0 +1,696 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>welcome to ppn global ventures</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="../public/styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+     <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/> -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.4/swiper-bundle.css" integrity="sha512-303pOWiYlJMbneUN488MYlBISx7PqX8Lo/lllysH56eKO8nWIMEMGRHvkZzfXYrHj4j4j5NtBuWmgPnkLlzFCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link href="../public/styles.css" rel="stylesheet" type="text/css">
+ 
+ </head>
+
+ 
+ <body>
+   <header class="header">
+    <a href="#" id="logo" class="logo"> PPN <span id="span"> Global </span></a>
+    <nav id="navbar" class="navbar">
+          <a href="#home"> home</a>
+          <a href="#about"> About</a>
+          <a href="#services"> services</a>
+          <a href="#projects"> projects</a>
+          <a href="#pricing"> pricing</a>
+          <a href="contact"> contact</a>
+          <!-- <a href="#blogs"> blogs</a> -->
+          <a href="team">Team</a>
+   
+       
+    </nav>
+       <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="info-btn" class="fas fa-info-circle"></div>
+     <a href=""> <div id="search-btn" class="fa-solid fa-money-bill-1"></div></a> 
+     <div id="login-btn" class="fas fa-user"></div>  
+     
+       </div>
+     <% if(typeof user != 'undefined') { %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         <strong> welcome <%= user.name %></strong> 
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+       </div>
+  <% } else{ %>  
+   <div class="icons">
+ 
+   </div>
+     <form action="users/login" class="login-form" method="POST">
+        <h3>login form</h3>
+        <input type="email" name="email" placeholder="enter your email" class="box">
+        <input type="password" name="password" placeholder="enter your password" class="box">
+        <!-- <input type="tel" placeholder="enter your phone number" class="box"> -->
+        <div class="flex">
+           <input type="checkbox" name="" id="remember-me">
+           <label for="remember-me">remember me</label>
+           <a href="reset">forgot password?</a>
+        </div>
+        <input type="submit" value="login now" class="btn">
+        <p>don't have an account <a href="users/register">create one!</a></p>
+     </form>
+<% } %>
+   
+   </header>
+   <div class="contact-info">
+
+    <div id="close-contact-info" class="fas fa-times"></div>
+ 
+    <div class="info">
+       <i class="fas fa-phone"></i>
+       <h3>phone number</h3>
+       <p> +234 703-819-1403</p>
+    </div>
+ 
+    <div class="info">
+       <i class="fas fa-envelope"></i>
+       <h3>email address</h3>
+       <p>ppnglobalventures@gmail.com</p>
+    </div>
+ 
+    <div class="info">
+       <i class="fas fa-map-marker-alt"></i>
+       <h3>office address</h3>
+       <p>Gudu, garki, behind cliffland estate, Abuja</p>
+    </div>
+ 
+    <div class="share">
+       <a href="#" class="fab fa-facebook-f"></a>
+       <a href="#" class="fab fa-twitter"></a>
+       <a href="#" class="fab fa-instagram"></a>
+       <a href="#" class="fab fa-linkedin"></a>
+    </div>
+ 
+ </div>
+
+ 
+<!-- home section starts  -->
+ 
+<section class="home" id="home">
+ 
+  <div class="swiper home-slider">
+   <%- include ("./partials/messages"); %>
+     <div class=" swiper-wrapper">
+         <section class="swiper-slide slide" style="background: url(../public/images/property2.jpg) no-repeat;">
+           <div class="content">
+              <h3>PPN Global ventures</h3>
+              <p>Tell us what you want, leave the building to us. </p>
+              <a href="#about" class="btn">get started</a>
+           </div>
+        </section>
+
+        <section class="swiper-slide slide" style="background: url(../public/images/home-slide-2.jpg) no-repeat;">
+           <div class="content">
+              <h3>we give you a better life with our quality services.</h3>
+              <p>We have worked with hundreds of clients all across the nation,and we haven't failed to deliver in any of them</p>
+              <a href="#about" class="btn">get started</a>
+           </div>
+        </section>
+
+        <section class="swiper-slide slide" style="background: url(../public/images/home-slide-3.jpg) no-repeat;">
+           <div class="content">
+              <h3>You imagine, We create</h3>
+              <p> all you have to do is tell us what you want, and contact us to see your dream project come to live</p>
+              <a href="#about" class="btn">get started</a>
+           </div>
+        </section>
+
+     </div>
+
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+     </div>
+ 
+   
+</section>
+
+<!-- home section ends -->
+ <!-- about section starts  -->
+
+<section class="about" id="about">
+
+  <h1 class="heading"> About us </h1>
+
+  <div class="row">
+  
+     <div class="video">
+        <video src="../public/images/about-vid.mp4" controls  width="600px" height="300px" ></video>
+     </div>
+
+     <div class="content">
+        <h3>We will provide you the best work which you dreamt for!</h3>
+        <p>Having worked with hundreds of clients over the last six years, we have developed a reputation for ourselves and have established ourselves in the industry,Having worked with different Government agencies in numerous projects, you can trust us with whatever the task is. here at ppn global, we have all it takes to make your project just as you envisioned it. </p>
+
+        <!-- <a href="#services" class="btn">read more</a> -->   
+     </div>
+  </div>
+
+  <div class="box-container">
+
+     <div class="box">
+        <h3>7+</h3>
+        <p>years of experience</p>
+     </div>
+
+     <div class="box">
+        <h3>1500+</h3>
+        <p>project completed</p>
+     </div>
+
+     <div class="box">
+        <h3>800+</h3>
+        <p>satisfied clients</p>
+     </div>
+
+     <div class="box">
+        <h3>200+</h3>
+        <p>active workers</p>
+     </div>
+
+  </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+  <h1 class="heading"> our services </h1>
+
+  <div class="box-container">
+
+     <div class="box">
+        <img src="../public/images/service-1.png" alt="">
+        <h3>Building construction</h3>
+        <p>Do you have a building you want to develop at any level, give us a call now! we can handle it</p>
+     </div>
+
+     <div class="box">
+        <img src="../public/images/service-2.png" alt="">
+        <h3>house renovation</h3>
+        <p>Our experts have renovated over 200 houses during the course of their carriers, we are always happy to attend to your needs</p>
+     </div>
+
+     <div class="box">
+        <img src="../public/images/road.png" alt="">
+        <h3>Road construction services</h3>
+        <p>Our reliable group of engineers and contractors were born to attend to your contracts to give quality and undamaging road construction services, Our services are always in the highest quality. dont hesitate to give us a call to make more enquiries  </p>
+     </div>
+
+     <div class="box">
+        <img src="../public/images/service-4.png" alt="">
+        <h3>material supply</h3>
+        <p>we supply all sorts of building materials such as chippings, stone-dust, laterite etc at their cheapest prices and highest quality.we have our private company owned vehicles which would ensure the punctual delivery of the materials in their best shape </p>
+     </div>
+
+     <div class="box">
+        <img src="../public/images/service-5.png" alt="">
+        <h3>construction consultant</h3>
+        <p>You need consultancy on your future projects and not sure where to turn to? ppn global ventures is always open to you</p>
+     </div>
+
+     <!-- <div class="box">
+        <img src="../public/images/service-6.png" alt="">
+        <h3>interior design</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus.</p>
+     </div> -->
+
+     <div class="box">
+        <img src="../public/images/service-7.png" alt="">
+        <h3>building maintenance</h3>
+        <p>We have the quality tools which are constantly being maintained and kept in the best shape to help us build and make better services for you our customers and the satisfaction of everyone.</p>
+     </div>
+
+     <!-- <div class="box">
+        <img src="../public/images/service-8.png" alt="">
+        <h3>building renovation</h3>
+        <p> consectetur adipisicing elit. Fugit, necessitatibus.  </p>
+     </div>
+      -->
+  </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- projects section starts  -->
+
+<section class="projects" id="projects">
+
+  <h1 class="heading"> our projects </h1>
+
+  <div class="box-container">
+
+     <a href="#" class="box">
+        <div class="image">
+         <img src="../public/images/property1.jpg" alt="">
+        </div>
+        <div class="content">
+           <div class="info">
+              <h3>Home</h3>
+              <p>Construction, project design</p>
+           </div>
+           <!-- <i class="fas fa-plus"></i> -->
+        </div>
+     </a>
+
+     <a href="#" class="box">
+        <div class="image">
+           <img src="../public/images/project-2.jpg" alt="">
+        </div>
+        <div class="content">
+           <div class="info">
+              <h3>site </h3>
+              <p>Construction, Machinery</p>
+           </div>
+           <!-- <i class="fas fa-plus"></i> -->
+        </div>
+     </a>
+
+     <a href="#" class="box">
+        <div class="image">
+           <img src="../public/images/property5.jpg" alt="">
+        </div>
+        <div class="content">
+           <div class="info">
+              <h3> Home</h3>
+              <p>Residence , Real estate</p>
+           </div>
+           <!-- <i class="fas fa-plus"></i> -->
+        </div>
+     </a>
+
+     <a href="#" class="box">
+        <div class="image">
+           <img src="../public/images/project-4.jpg" alt="">
+        </div>
+        <div class="content">
+           <div class="info">
+              <h3>On site</h3>
+              <p>Construction, machinery</p>
+           </div>
+           <!-- <i class="fas fa-plus"></i> -->
+        </div>
+     </a>
+
+     <a href="#" class="box">
+        <div class="image">
+           <img src="../public/images/property2.jpg" alt="">
+        </div>
+        <div class="content">
+           <div class="info">
+              <h3>Home </h3>
+              <p>Residence, Real Estate</p>
+           </div>
+           <!-- <i class="fas fa-plus"></i> -->
+        </div>
+     </a>
+     <a href="#" class="box">
+      <div class="image">
+         <img src="../public/images/project-6.jpg" alt="">
+      </div>
+      <div class="content">
+         <div class="info">
+            <h3> Home</h3>
+            <p>Construction, Project Design</p>
+         </div>
+         <!-- <i class="fas fa-plus"></i> -->
+      </div>
+   </a>
+   <a href="#" class="box">
+      <div class="image">
+         <img src="../public/images/brick2.jpg" alt="">
+      </div>
+      <div class="content">
+         <div class="info">
+            <h3> On site</h3>
+            <p>Site, Block Industry</p>
+         </div>
+         <!-- <i class="fas fa-plus"></i> -->
+      </div>
+   </a>
+   <a href="#" class="box">
+      <div class="image">
+         <img src="../public/images/property3.jpg" alt="">
+      </div>
+      <div class="content">
+         <div class="info">
+            <h3> Home</h3>
+            <p>Residence, Real Estate</p>
+         </div>
+         <!-- <i class="fas fa-plus"></i> -->
+      </div>
+   </a>
+   <a href="#" class="box">
+      <div class="image">
+         <img src="../public/images/brick1.jpg" alt="">
+      </div>
+      <div class="content">
+         <div class="info">
+            <h3> on site </h3>
+            <p>Site , Block industry</p>
+         </div>
+         <!-- <i class="fas fa-plus"></i> -->
+      </div>
+   </a>
+</div>
+
+</section>
+
+<!-- projects section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews">
+
+<h1 class="heading"> clients reviews </h1>
+
+<div class="swiper reviews-slider">
+
+   <div class="swiper-wrapper">
+
+      <div class="swiper-slide slide">
+         <p>Having worked with ppn global ventures for so long, i cant be more satisfied in a service than this. incredible speed and deliver just what you had in mind in the first place. Good work to the team</p>
+         <div class="user">
+            <!-- <img src="../public/images/pic-1.png" alt=""> -->
+            <div class="info">
+               <h3>Mark Ugwu</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <p>i love the service i received from ppn . it was just incredible, have been using them for my material supply for the past five years and i have not been disappointed at all</p>
+         <div class="user">
+            <!-- <img src="../public/images/pic-2.png" alt=""> -->
+            <div class="info">
+               <h3>john Balogun</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <p> when it comes to customer service and quality product delivery, all you need is to contact ppn global and i promise you wont be disappointed at all.</p>
+         <div class="user">
+            <!-- <img src="../public/images/pic-3.png" alt=""> -->
+            <div class="info">
+               <h3> Purity Igene </h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <p>i was asked to say something about ppn global ventures, and the only thing that came to mind was how Good their service was. simply awesome !!</p>
+         <div class="user">
+            <!-- <img src="../public/images/pic-4.png" alt=""> -->
+            <div class="info">
+               <h3>Joshua Alonge</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <p>i love their service alot . been doing business with them for three years now and ive always been satisfied. i love ppn Global ventures alot. don't hesitate to contact them</p>
+         <div class="user">
+            <!-- <img src="../public/images/pic-5.png" alt=""> -->
+            <div class="info">
+               <h3>Maryam Ibrahim</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <p> my company has been doing business with them for 7  years now, i have not contacted another company ever since when looking for a real estate property </p>
+         <div class="user">
+            <!-- <img src="../public/images/pic-6.png" alt=""> -->
+            <div class="info">
+               <h3>Odigbo properties</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</section>
+
+<!-- reviews section ends -->
+<!-- pricing section starts  -->
+<section class="pricing" id="pricing">
+<h1 class="heading"> our pricing </h1>
+<div class="box-container">
+   <div class="box">
+      <i class="fas fa-home"></i>
+      <h3>chippings</h3>
+      <div class="price"><span>&#8358;</span>6200<span></span><span><br>per one</span></div>
+      <div class="list">
+         <p>chippings</p>
+         <p>per </p>
+         <p>tonne</p>
+         <!-- <p>maintenance</p>
+         <p>24/7 support</p> -->
+      </div>
+      <a href="#" class="btn">order</a>
+   </div>
+
+   <div class="box">
+      <i class="fas fa-building"></i>
+      <h3>Block</h3>
+      <div class="price"><span>&#8358;</span>350<span><br>per one</span></div>
+      <div class="list">
+         <p>9</p>
+         <p>inch</p>
+         <p>block</p>
+      </div>
+      <a href="#" class="btn">Order</a>
+   </div>
+
+   <div class="box">
+      <i class="fas fa-city"></i>
+      <h3>Block</h3>
+      <div class="price"><span>&#8358;</span>320<span><br>per one</span></div>
+      <div class="list">
+         <p>6</p>
+         <p>inch</p>
+         <p>block</p>
+      </div>
+      <a href="#" class="btn">order</a>
+   </div>
+
+</div>
+
+</section>
+
+<!-- pricing section ends -->
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+<h1 class="heading"> Our Location </h1>
+
+<div class="row">
+
+   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.2102213523385!2d7.475635314276318!3d8.992791092032345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0cf762603f87%3A0x173cecef82c31cd7!2sCliffland%20Estate!5e1!3m2!1sen!2sng!4v1655164356670!5m2!1sen!2sng" width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!-- 
+   <form action="">
+      <h3>get in touch</h3>
+      <input type="text" placeholder="name" class="box">
+      <input type="email" placeholder="email" class="box">
+      <input type="number" placeholder="phone" class="box">
+      <textarea name="" placeholder="message" class="box" id="" cols="30" rows="10"></textarea>
+      <input type="submit" value="send message" class="btn">
+   </form> -->
+
+</div>
+
+</section>
+
+<!-- contact section ends -->
+<!-- blogs section starts  -->
+<section class="blogs" id="blogs">
+
+<h1 class="heading"> our blogs </h1>
+
+<div class="swiper blogs-slider">
+
+   <div class="swiper-wrapper">
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="../public/images/blog-1.jpg" alt="">
+         </div>
+         <div class="content">
+            <h3>housing challenges in nigeria</h3>
+            <p>Blog coming soon!</p>
+            <a href="#" class="btn">Coming soon</a>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="../public/images/blog-2.jpg" alt="">
+         </div>
+         <div class="content">
+            <h3>why work with ppn global ventures</h3>
+            <p>Blog coming soon!!</p>
+            <a href="#" class="btn">coming soon</a>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="../public/images/blog-3.jpg" alt="">
+         </div>
+         <div class="content">
+            <h3>Real estate, and how to get started</h3>
+            <p>Blog coming soon</p>
+            <a href="#" class="btn">coming soon!!!</a>
+         </div>
+      </div>
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="../public/images/blog-4.jpg" alt="">
+         </div>
+         <div class="content">
+            <h3>Five things that must be discussed before buying a house</h3>
+        <p> Blog coming soon!!</p>
+            <a href="#" class="btn">coming soon</a>
+         </div>
+      </div>
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="../public/images/blog-5.jpg" alt="">
+         </div>
+         <div class="content">
+            <h3> making a structurally Good home </h3>
+            <p>Blog coming soon!! </p>
+            <a href="#" class="btn">coming soon</a>
+         </div>
+      </div>
+ 
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="../public/images/blog-6.jpg" alt="">
+         </div>
+         <div class="content">
+            <h3> Get cheap lands in Abuja </h3>
+            <p> <p>Blog coming soon!! </p></p>
+            <a href="#" class="btn">coming soon</a>
+         </div>
+      </div>
+   </div>
+</div>
+</section>
+
+<!-- blogs section ends -->
+<!-- client logo section starts -->
+<section class="logo-container">
+<div class="swiper logo-slider">
+   <!-- <div class="swiper-wrapper">
+      <div class="swiper-slide slide"><img src="../public/images/client-logo-1.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="../public/images/client-logo-2.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="../public/images/client-logo-3.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="../public/images/client-logo-4.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="../public/images/client-logo-5.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="../public/images/client-logo-6.png" alt=""></div>
+   </div> -->
+</div>
+</section>
+
+<!-- client logo section ends -->
+<!-- footer section starts  -->
+
+<section class="footer">
+<div class="links">
+   <a class="btn" href="#home">home</a>
+   <a class="btn" href="#about">about</a>
+   <a class="btn" href="#services">services</a>
+   <a class="btn" href="#projects">projects</a>
+   <a class="btn" href="#pricing">pricing</a>
+   <a class="btn" href="#contact">contact</a>
+   <a class="btn" href="#blogs">blogs</a>
+</div>
+<div class="credit"> created by <span> Godwin Aikonedo </span> | all rights reserved! </div>
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.4/swiper-bundle.min.js" integrity="sha512-Hvn3pvXhhG39kmZ8ue3K8hw8obT4rfLXHE5n+IWNCMkR6oV3cfkQNUQqVvX3fNJO/JtFeo/MfLmqp5bqAT+8qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- custom js file link  -->
+<script src="../public/js/styles.js"></script>
+
+<script>
+
+lightGallery(document.querySelector('.projects .box-container'));
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ </body>
+ </html>
