@@ -3,7 +3,7 @@ const router = express.Router()
 const User =     require('../models/User');
 const { forwardAuthenticated , ensureAuthenticated } = require('../config/auth');
 const bcrypt =    require('bcryptjs');
-const passport =    require('passport');
+
 
 
 
@@ -12,7 +12,7 @@ router.get('/',forwardAuthenticated, function(req, res){
 })
 
 //register users
-router.post('/', (req, res) => {
+router.post('/', ensureAuthenticated,(req, res) => {
   const { name, email, password, phone, password2 } = req.body;
   let errors = [];
 

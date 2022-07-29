@@ -1,28 +1,28 @@
 const express   =     require('express')
 const mongoose  =    require('mongoose')
 const { json }  =    require('express')
-const axios     =    require('axios')
 const app       =         express()
 app.use(express.urlencoded({extended : true}));
 app.use(express.json({extended : false }));
 app.set('view engine', 'ejs')
-const passport =    require('passport');
-const dotenv = require('dotenv');
+const passport  =    require('passport');
+const dotenv    =      require('dotenv');
 dotenv.config();
 app.use('/public', express.static('public'));
-const flash = require('connect-flash');
-const session = require('express-session');
+const flash     = require('connect-flash');
+const session   = require('express-session');
 require('./config/passport')(passport);
-
 const LocalStrategy = require('passport-local').Strategy;
 const { forwardAuthenticated , ensureAuthenticated } = require('./config/auth');
 // DB Config
 const db = require('./config/keys').mongoURI;
+
 const homeRoute = require('./routes/Home')
 const userRoute = require('./routes/Users')
 const loginRoute = require('./routes/Login')
 const resetRoute = require('./routes/reset')
 const contactRoute = require('./routes/Contact')
+const PaymentRoute = require('./routes/Payment')
 // Connect to MongoDB
 mongoose
   .connect(
@@ -34,11 +34,7 @@ mongoose
 
 // Express session
 app.use(
-  session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-  })
+  session({ secret: 'secret',  resave: true, saveUninitialized: true })
 );
  const jwt = require('jsonwebtoken')
 
@@ -57,8 +53,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-
 app.use('/', homeRoute);
 app.use('/contact', homeRoute)
 app.use('/team', homeRoute)
@@ -66,31 +60,7 @@ app.use('/users/register', userRoute)
 app.use('/users/login', loginRoute)
 app.use('/', resetRoute)
 app.use('/contact-email', contactRoute)
-
-
-app.get('/pay', (req, res)=>{
-  res.render('payment', {user : req.user})
-})
-
-
-app.get('/pay/approved', async(req, res)=>{
-  const { transaction_id } = req.query;
-  const url = `https://api.flutterwave.com/v3/transactions/${transaction_id}/verify`;
-  const response = await axios({
-    url,
-    method: "get",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      Authorization: process.env.SECRET,
-    },
-  }).then(
-    res.render('confirmation-page')
-  )
-  .catch(
-    res.render('error-page')
-  )
-})
+app.use('/', PaymentRoute)
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, ()=>{
