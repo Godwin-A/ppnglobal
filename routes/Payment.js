@@ -19,13 +19,21 @@ router.get('/pay/approved',ensureAuthenticated, async(req, res)=>{
       Accept: "application/json",
       Authorization: process.env.SECRET,
     },
-  }).then(results =>{
-    res.render('confirmation-page')
-    const { status, currency, id, amount, customer } = results.data.data;
-    console.log(customer)
-  }).catch(
+  })
+  if(!response){
     res.render('error-page')
-  )
+  }else{
+      res.render('confirmation-page')
+  }
+
+  
+  // .then(results =>{
+  //   res.render('confirmation-page')
+  //   const { status, currency, id, amount, customer } = results.data.data;
+  //   console.log(customer)
+  // }).catch(
+  //   res.render('error-page')
+  // )
 
 })
 
