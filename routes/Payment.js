@@ -19,12 +19,14 @@ router.get('/pay/approved',ensureAuthenticated, async(req, res)=>{
       Accept: "application/json",
       Authorization: process.env.SECRET,
     },
-  }).then(
+  }).then(results =>{
     res.render('confirmation-page')
-  )
-  .catch(
+    const { status, currency, id, amount, customer } = results.data.data;
+    console.log(customer)
+  }).catch(
     res.render('error-page')
   )
+
 })
 
 module.exports = router;
