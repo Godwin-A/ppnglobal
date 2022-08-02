@@ -25,7 +25,7 @@ User.findOne({email:email}).then( user =>{
     id: user._id
   }
   const token = jwt.sign(payload, secret, {expiresIn:'10m'})
-  const link = `http://localhost:8080/reset-password/${user._id}/${token}`
+  const link = `https://ppnglobalventureslimited/reset-password/${user._id}/${token}`
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -59,7 +59,7 @@ User.findOne({email:email}).then( user =>{
     }
   })
     console.log(user)
-    res.send('email found , check vscode now')
+    res.send('email found , check your email now')
   }else{
     res.send('there is no user')
   }
