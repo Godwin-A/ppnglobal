@@ -26,15 +26,6 @@ router.get('/pay/approved',ensureAuthenticated, async(req, res)=>{
       res.render('confirmation-page')
   }
 
-  
-  // .then(results =>{
-  //   res.render('confirmation-page')
-  //   const { status, currency, id, amount, customer } = results.data.data;
-  //   console.log(customer)
-  // }).catch(
-  //   res.render('error-page')
-  // )
-
 })
 
 module.exports = router;
