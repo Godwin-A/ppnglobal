@@ -58,8 +58,7 @@ User.findOne({email:email}).then( user =>{
    res.send('password reset link has been sent if email exists')
     }
   })
-    console.log(user)
-    res.send('email found , check your email now')
+   return  res.render('sent-email')
   }else{
     res.send('there is no user')
   }
