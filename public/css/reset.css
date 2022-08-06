@@ -122,3 +122,37 @@ a:hover {
   color: #07dd97;
   font-size: .9em;
 }   
+
+
+
+@media (max-width: 768px) {
+  html {
+    font-size: 70%;
+  }
+  .container {
+    display: flex;
+    font-size: 15px;
+    width: max-content;
+    height: fit-content;
+  }
+  div{
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 70%;
+  }
+  .container {
+    display: flex;
+    font-size: 15px;
+    width: max-content;
+    height: fit-content;
+  }
+  div{
+    font-size: 40px;
+  }
+
+}
