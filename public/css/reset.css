@@ -1,67 +1,37 @@
-
-
-.progress-bar {
-    color: #333;
-} 
-
-/*
-Reference:
-http://www.bootstrapzen.com/item/135/simple-login-form-logo/
-*/
-
-* {
-    -webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-	outline: none;
+body{
+  background:#f3c538;
 }
-
-    .form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-	}
-
-body {
-	background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.forget-pwd > a{
+  color: #dc3545;
+  font-weight: 500;
 }
-
-.login-form {
-	margin-top: 60px;
+.forget-password .panel-default{
+  padding: 31%;
+  margin-top: -27%;
 }
-
-form[role=login] {
-	color: #5d5d5d;
-	background: #f2f2f2;
-	padding: 26px;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
+.forget-password .panel-body{
+  padding: 15%;
+  margin-bottom: -50%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-	form[role=login] img {
-		display: block;
-		margin: 0 auto;
-		margin-bottom: 35px;
-	}
-	form[role=login] input,
-	form[role=login] button {
-		font-size: 18px;
-		margin: 16px 0;
-	}
-	form[role=login] > div {
-		text-align: center;
-	}
-	
-.form-links {
-	text-align: center;
-	margin-top: 1em;
-	margin-bottom: 50px;
+img{
+  width:40%;
+  margin-bottom:10%;
 }
-	.form-links a {
-		color: #fff;
-	}
+.btnForget{
+  background: #c0392b;
+  border:none;
+}
+.forget-password .dropdown{
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+.forget-password .dropdown button{
+  width: 100%;
+}
+.forget-password .dropdown ul{
+  width: 100%;
+}
