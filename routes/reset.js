@@ -97,13 +97,19 @@ router.get('/reset-password/:id/:token', (req, res)=>{
 router.post('/reset-password/:id/:token', (req, res)=>{
   const { id , token } = req.params
  const {password, password2}= req.body
+ let errors = [];
   User.findOne({_id: id}).then( user =>{
     if(user){
    const secret = jwt_secret + user.password
    try{
      const payload = jwt.verify(token, secret)   
   if (password != password2) {
-   res.send('passwords do not match')
+    errors.push({ msg: 'Passwords are not the same' });
+  if(errors.length > 0){
+    res.render('reset-password', {
+      errors
+    })
+  }
   }else{
      const {password, password2} = req.body
          user.password = password

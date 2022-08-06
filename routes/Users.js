@@ -12,7 +12,7 @@ router.get('/',forwardAuthenticated, function(req, res){
 })
 
 //register users
-router.post('/', ensureAuthenticated,(req, res) => {
+router.post('/',(req, res) => {
   const { name, email, password, phone, password2 } = req.body;
   let errors = [];
 
