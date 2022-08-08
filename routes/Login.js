@@ -10,8 +10,9 @@ const passport =    require('passport');
 router.post('/', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/home',
-    failureFlash: true
+    failureRedirect: '/',
+    failureFlash: true,
+    failureMessage: "Invalid username or password"
   })(req, res, next);
 });
 

@@ -12,7 +12,7 @@ module.exports = function(passport) {
         email: email
       }).then(user => {
         if (!user) {
-          return done(null, false, { message: 'That email is not registered' });
+          return done(null, false,  { message: 'That email is not registered' });
         }
 
         // Match password
@@ -22,7 +22,6 @@ module.exports = function(passport) {
                    console.log('passpord matches perfectly')
             return done(null, user);
           } else {
-     
             return done(null, false, { message: 'Password incorrect' });
           }
         });
