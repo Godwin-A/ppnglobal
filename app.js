@@ -62,6 +62,9 @@ app.use('/', resetRoute)
 app.use('/contact-email', contactRoute)
 app.use('/', PaymentRoute)
 
+app.get('/order', (req, res )=>{
+  res.render('order')
+})
 const PORT = process.env.PORT || 8080
 app.listen(PORT, ()=>{
   console.log('server has started listening on port 8080')
