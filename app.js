@@ -16,13 +16,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const { forwardAuthenticated , ensureAuthenticated } = require('./config/auth');
 // DB Config
 const db = require('./config/keys').mongoURI;
-
+const axios     =    require('axios')
 const homeRoute = require('./routes/Home')
 const userRoute = require('./routes/Users')
 const loginRoute = require('./routes/Login')
 const resetRoute = require('./routes/reset')
 const contactRoute = require('./routes/Contact')
 const PaymentRoute = require('./routes/Payment')
+const OrderRoute   = require('./routes/order')
 // Connect to MongoDB
 mongoose
   .connect(
@@ -61,10 +62,8 @@ app.use('/users/login', loginRoute)
 app.use('/', resetRoute)
 app.use('/contact-email', contactRoute)
 app.use('/', PaymentRoute)
+app.use('/', OrderRoute)
 
-app.get('/order', (req, res )=>{
-  res.render('order')
-})
 const PORT = process.env.PORT || 8080
 app.listen(PORT, ()=>{
   console.log('server has started listening on port 8080')

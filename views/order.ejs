@@ -24,8 +24,8 @@
         </div>
         <select class="form-select" id="inches" required >
           <option selected disabled>select size of block</option>
-          <option value="9">9 inches</option>
-          <option value="6">6 inches</option>
+          <option value="350">9 inches</option>
+          <option value="320">6 inches</option>
         </select>
         <div class="col-md-4">
           <label for="tonnes" class="form-label">Tonnes</label>
@@ -68,6 +68,8 @@
       const email = document.getElementById('email').value
       const name = document.getElementById('name').value
       const phone_number = document.getElementById('phone').value
+      const tonnes    = document.getElementById('tonnes').value
+      const inches  = document.getElementById('inches').value
       FlutterwaveCheckout({
         public_key: "FLWPUBK-afbf49c49f5701aa3f6ae025d7f9745d-X",
         tx_ref: Date.now(),
@@ -77,8 +79,11 @@
         payment_options:"card, ussd,	account, mobilemoneyghana",
   
         // specified redirect URL
-        redirect_url: "https://ppnglobalventures.herokuapp.com/pay/approved",
-      
+        redirect_url: "https://ppnglobalventures.herokuapp.com/orderApproval",
+         meta: {
+     inches,
+     tonnes
+    },
         // use customer details if user is not logged in, else add user_id to the request
         customer: {
           email,
