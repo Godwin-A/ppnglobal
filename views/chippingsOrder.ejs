@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link href="../public/order.css" rel="stylesheet" type="text/css">
+
+  <title>Order chippings - ppnglobalventures limited</title>
+</head>
+<body>
+  <ul class="navbar navbar-light bg-light   nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/">Home</a>
+    </li>
+  </ul> 
+  <section class="container-md" id="order">
+    <form class="row g-3">
+      <script src="https://checkout.flutterwave.com/v3.js"></script>
+      <div class="col-md-6">
+        <label for="name" class="form-label">Fullname</label>
+        <input type="text" class="form-control"  id="name">
+      </div>
+     <div class="col-md-6">
+        <label for="chippings" class="form-label">Chippings</label>
+        <input type="text" class="form-control" id="chippings" placeholder="how many tonnes of chippings do you want to buy?">
+     </div>
+      <div class="col-md-2">
+        <label for="price" class="form-label">Amount</label>
+        <input type="text" class="form-control" disabled id="price">
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email here </label>
+        <input type="email" class="form-control"  id="email" required>
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">phone here </label>
+        <input type="tel" class="form-control"  id="phone" required>
+      </div>
+      <div class="col-12">
+        <button type="button" onClick="makePayment()" class="btn btn-primary">PURCHASE</button>
+      </div>
+    </form>
+  </section>
+
+ <script src="../public/js/chippings.js"></script> 
+ <script>
+  function makePayment() {
+    const amount = document.getElementById('price').value
+    const email = document.getElementById('email').value
+    const name = document.getElementById('name').value
+    const phone_number = document.getElementById('phone').value
+    const chippings    = document.getElementById('chippings').value
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK-afbf49c49f5701aa3f6ae025d7f9745d-X",
+      tx_ref: Date.now(),
+      amount,
+      currency: "NGN",
+      country: "NG",
+      payment_options:"card, ussd,	account, mobilemoneyghana",
+
+      // specified redirect URL
+      redirect_url: "https://ppnglobalventures.herokuapp.com/orderApproval",
+       meta: {
+   chippings,
+  },
+      // use customer details if user is not logged in, else add user_id to the request
+      customer: {
+        email,
+        phone_number,
+        name,
+      },
+      callback: function (data) {
+        console.log(data);
+      },
+      onclose: function () {
+        // close modal
+      },
+      customizations: {
+        title: "Pay with ppn global",
+        description: "pay for a service",
+        logo: "https://i.postimg.cc/5tTMXnKG/ppn-logo.jpg",
+      //	https://cdn.iconscout.com/icon/premium/png-256-thumb/payment-2193968-1855546.png
+      },
+    });
+  }
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

@@ -9,6 +9,10 @@ router.get('/order', (req, res )=>{
   res.render('order')
 })
 
+router.get('/chippings-order', (req, res)=>{
+   res.render('chippingsOrder')
+})
+
 router.get('/orderApproval',  async(req, res)=> {
   const { transaction_id } = req.query;
   const url = `https://api.flutterwave.com/v3/transactions/${transaction_id}/verify`;
