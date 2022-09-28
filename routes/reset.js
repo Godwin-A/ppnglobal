@@ -25,7 +25,7 @@ User.findOne({email:email}).then( user =>{
     id: user._id
   }
   const token = jwt.sign(payload, secret, {expiresIn:'10m'})
-  const link = `https://ppnglobalventures.herokuapp.com/reset-password/${user._id}/${token}`
+  const link = `https://ppnglobalventures.com/reset-password/${user._id}/${token}`
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
